@@ -1,0 +1,47 @@
+.article-card {
+  display: flex;
+  align-items: flex-start;
+  border: 0.0625rem solid #ddd;
+  border-radius: 0.5rem;
+  overflow: hidden;
+  max-width: 50rem;
+  width: 100%;
+  background-color: #fff;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.article-card:hover {
+  transform: translateY(-0.25rem);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.article-card__image {
+  width: 9.375rem;
+  height: 9.375rem;
+  min-width: 9.375rem;
+  object-fit: cover;
+}
+
+.article-card__content {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
+}
+
+.article-card__title {
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin: 0 0 0.5rem;
+  color: #333;
+}
+
+.article-card__subtitle {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 0;
+}
