@@ -1,0 +1,12 @@
+.article-filters {
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.filter-dropdowns {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  max-width: 50rem;
+}

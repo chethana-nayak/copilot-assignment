@@ -4,8 +4,8 @@
   "data": {
     "categories": [
       {
-        "categoryId": "a9d7hds2",
-        "categoryName": "Technology"
+        "id": "a9d7hds2",
+        "name": "Technology"
       }
     ]
   }

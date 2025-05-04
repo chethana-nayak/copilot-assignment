@@ -1,5 +1,6 @@
 import homePageData from "../data/homePage.json";
 import articleData from "../data/article.json";
+import categoriesData from "../data/categories.json";
 
 export function fetchHomePageData() {
   try {
@@ -23,6 +24,19 @@ export function fetchArticleDetailById(id) {
     return articleData?.data;
   } catch (error) {
     console.error("Error fetching article.json:", error);
+    throw error;
+  }
+}
+
+export function fetchFilters() {
+  try {
+    const response = categoriesData;
+    if (!response.status) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return categoriesData?.data;
+  } catch (error) {
+    console.error("Error fetching categories.json:", error);
     throw error;
   }
 }
