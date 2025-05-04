@@ -12,12 +12,12 @@ export function fetchHomePageData(filters) {
     if (filters) {
       const { author, category, type, tag } = filters;
       response.data.articles = response.data.articles.filter((article) => {
-        const matchesAuthor = author ? article.authorId === author.id : true;
+        const matchesAuthor = author ? article.authorId === author : true;
         const matchesCategory = category
-          ? article.categoryId === category.id
+          ? article.categoryId === category
           : true;
-        const matchesType = type ? article.type === type.id : true;
-        const matchesTag = tag ? article.tags.includes(tag.name) : true;
+        const matchesType = type ? article.type === type : true;
+        const matchesTag = tag ? article.tags.includes(tag) : true;
         return matchesAuthor && matchesCategory && matchesType && matchesTag;
       });
     }

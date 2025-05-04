@@ -5,11 +5,13 @@ import ArticleCard from "../components/ArticleCard";
 import { fetchHomePageData } from "../services/article";
 import ArticleList from "../components/ArticleList";
 import ArticleFilters from "../components/ArticleFilters";
+import { useSearchParams } from "react-router-dom";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
   const [selectedFilters, setSelectedFilters] = useState();
+  const [searchParams] = useSearchParams();
 
   useEffect(() => {
     const fetchArticles = () => {
@@ -24,12 +26,14 @@ const Articles = () => {
   useEffect(() => {
     const fetchFilteredArticles = () => {
       setLoading(true);
-      let data = fetchHomePageData(selectedFilters);
+      const params = Object.fromEntries(searchParams.entries());
+      setSelectedFilters(params);
+      let data = fetchHomePageData(params);
       setArticles(data?.articles || []);
       setLoading(false);
     };
     fetchFilteredArticles();
-  }, [selectedFilters]);
+  }, [searchParams]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -37,10 +41,7 @@ const Articles = () => {
 
   return (
     <div>
-      <ArticleFilters
-        selectedFilters={selectedFilters}
-        setSelectedFilters={setSelectedFilters}
-      />
+      <ArticleFilters selectedFilters={selectedFilters} />
       <ArticleList>
         {articles && articles?.length > 0 ? (
           articles.map((article, index) => (

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Dropdown from "../Dropdown";
 import { fetchFilters } from "../../services/article";
 import "./ArticleFilters.css";
 
-const ArticleFilters = ({ selectedFilters, setSelectedFilters }) => {
+const ArticleFilters = ({ selectedFilters }) => {
   const [dropdownData, setDropdownData] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -20,15 +22,16 @@ const ArticleFilters = ({ selectedFilters, setSelectedFilters }) => {
   }, []);
 
   const handleFilterChange = (filterName, option) => {
-    setSelectedFilters((prevFilters) => {
-      const updatedFilters = { ...prevFilters };
-      if (updatedFilters[filterName]?.id === option?.id) {
-        delete updatedFilters[filterName];
-      } else {
-        updatedFilters[filterName] = option;
-      }
-      return updatedFilters;
-    });
+    const searchParams = new URLSearchParams(window.location.search);
+    if (searchParams.get(filterName) === option?.id) {
+      searchParams.delete(filterName);
+    } else {
+      searchParams.set(filterName, option?.id);
+    }
+    const newUrl = `${window.location.pathname}${
+      searchParams.toString() ? `?${searchParams.toString()}` : ""
+    }`;
+    navigate(newUrl);
   };
 
   return (

@@ -26,10 +26,12 @@ const Dropdown = ({ options, placeholder, value, onSelect }) => {
     };
   }, []);
 
+  const selectedOption = options.find((option) => option.id === value);
+
   return (
     <div className="dropdown">
       <div className="dropdown-header" onClick={toggleDropdown}>
-        {value ? value.name : placeholder}
+        {selectedOption ? selectedOption.name : placeholder}
         <span className={`dropdown-arrow ${isOpen ? "open" : ""}`}>
           &#9662;
         </span>
@@ -43,7 +45,7 @@ const Dropdown = ({ options, placeholder, value, onSelect }) => {
               onClick={() => handleOptionClick(option)}
             >
               <span className="dropdown-item-name">{option.name}</span>
-              {value && option.id === value.id && (
+              {selectedOption && option.id === selectedOption.id && (
                 <span className="dropdown-tick">
                   <i className="icon-check">&#10003;</i>
                 </span>
