@@ -3,9 +3,8 @@ import Dropdown from "../Dropdown";
 import { fetchFilters } from "../../services/article";
 import "./ArticleFilters.css";
 
-const ArticleFilters = () => {
+const ArticleFilters = ({ selectedFilters, setSelectedFilters }) => {
   const [dropdownData, setDropdownData] = useState();
-  const [selectedFilters, setSelectedFilters] = useState();
 
   useEffect(() => {
     const fetchData = async () => {

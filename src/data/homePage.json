@@ -4,26 +4,28 @@
   "data": {
     "page": 1,
     "categoryId": null,
-    "tag": "technology",
+    "tag": "Technology",
     "authorName": "Anonymous",
     "articles": [
       {
         "title": "GitHub Copilot - About, Features and Use Cases",
-        "hero": "https://blog.brianrandell.com/content/images/size/w1920/2025/03/CopilotHeader.png",
-        "articleId": "a2b448sq",
+        "heroImage": "https://blog.brianrandell.com/content/images/size/w1920/2025/03/CopilotHeader.png",
+        "id": "a2b448sq",
         "categoryId": "r4wd2u8",
         "authorId": "y7w3w242",
-        "articleType": 1,
-        "tags": ["Science", "Technology"]
+        "type": 1,
+        "tags": ["Technology", "Gen AI", "Copilot"],
+        "subtitle": "Quantifying GitHub Copilot’s impact on developer productivity and happiness"
       },
       {
         "title": "Has Codeium Cracked the Code for AI Assistants?",
-        "hero": "https://www.bigdatawire.com/wp-content/uploads/2024/05/AI-copilot_shutterstock_AI-generated.jpg",
-        "articleId": "b2n2ss92",
+        "heroImage": "https://www.bigdatawire.com/wp-content/uploads/2024/05/AI-copilot_shutterstock_AI-generated.jpg",
+        "id": "b2n2ss92",
         "categoryId": "ewd32s3",
         "authorId": "n7232g2",
-        "articleType": 1,
-        "tags": ["Science", "Technology"]
+        "type": 2,
+        "tags": ["Science", "Technology"],
+        "subtitle": "Codeium is a free AI-powered code completion tool that helps developers write code faster and with fewer errors."
       }
     ]
   }

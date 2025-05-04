@@ -2,11 +2,16 @@
   position: relative;
   width: 200px;
   font-family: Arial, sans-serif;
+
+  @media (max-width: 640px) {
+    width: 150px;
+  }
 }
 
 .dropdown-header {
   display: flex;
   justify-content: space-between;
+  gap: 0.5rem;
   align-items: center;
   padding: 0.5rem 1rem;
   border: 1px solid #ccc;
@@ -14,6 +19,7 @@
   background-color: #fff;
   cursor: pointer;
   text-transform: capitalize;
+  white-space: nowrap;
 }
 
 .dropdown-header:hover {

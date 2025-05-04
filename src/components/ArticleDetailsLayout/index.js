@@ -4,8 +4,16 @@ import AuthorPopup from "../AuthorPopup";
 import BackButton from "../BackButton";
 
 const ArticleDetailsLayout = ({ article }) => {
-  const { title, hero, author, Subtitle, type, tags, description, content } =
-    article;
+  const {
+    title,
+    heroImage,
+    author,
+    subtitle,
+    type,
+    tags,
+    description,
+    content,
+  } = article;
 
   return (
     <>
@@ -14,9 +22,9 @@ const ArticleDetailsLayout = ({ article }) => {
       </div>
       <div className="article-detail-page">
         <h1 className="title">{title}</h1>
-        <img src={hero} alt="Hero" className="hero-image" />
+        <img src={heroImage} alt="Hero" className="hero-image" />
         <AuthorPopup {...author} />
-        {Subtitle && <div className="subtitles">{Subtitle}</div>}
+        {subtitle && <div className="subtitles">{subtitle}</div>}
         {type === "video" ? (
           <video controls className="media-player">
             <source src={content} type="video/mp4" />

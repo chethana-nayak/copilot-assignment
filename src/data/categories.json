@@ -2,10 +2,56 @@
   "status": 1,
   "message": "success",
   "data": {
+    "authors": [
+      {
+        "id": "y7w3w242",
+        "name": "Author 1"
+      },
+      {
+        "id": "n7232g2",
+        "name": "Author 2"
+      },
+      {
+        "id": "c3js6384",
+        "name": "Anonymous"
+      }
+    ],
     "categories": [
       {
-        "id": "a9d7hds2",
+        "id": "r4wd2u8",
         "name": "Technology"
+      },
+      {
+        "id": "ewd32s3",
+        "name": "Science"
+      }
+    ],
+    "articleTypes": [
+      {
+        "id": 1,
+        "name": "Article"
+      },
+      {
+        "id": 2,
+        "name": "Blog"
+      }
+    ],
+    "tags": [
+      {
+        "id": "Science",
+        "name": "Science"
+      },
+      {
+        "id": "Technology",
+        "name": "Technology"
+      },
+      {
+        "id": "Gen AI",
+        "name": "Gen AI"
+      },
+      {
+        "id": "Copilot",
+        "name": "Copilot"
       }
     ]
   }

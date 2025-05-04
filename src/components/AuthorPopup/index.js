@@ -1,7 +1,7 @@
 import "./AuthorPopup.css";
 
-const AuthorPopup = ({ authorImage, authorDescription, authorName }) => {
-  const hasTooltip = authorImage || authorDescription;
+const AuthorPopup = ({ image, description, name }) => {
+  const hasTooltip = image || description;
 
   return (
     <div className="author-info">
@@ -9,14 +9,14 @@ const AuthorPopup = ({ authorImage, authorDescription, authorName }) => {
         style={{ cursor: hasTooltip ? "pointer" : "default" }}
         className="author-name"
         onMouseEnter={(e) => {
-          if (authorImage || authorDescription) {
+          if (image || description) {
             const tooltip = document.createElement("div");
             tooltip.className = "author-tooltip";
             tooltip.innerHTML = `${
-              authorImage
-                ? `<img src="${authorImage}" alt="${authorName}" class="tooltip-author-image" />`
+              image
+                ? `<img src="${image}" alt="${name}" class="tooltip-author-image" />`
                 : ""
-            }${authorDescription ? `<p>${authorDescription}</p>` : ""}`;
+            }${description ? `<p>${description}</p>` : ""}`;
             document.body.appendChild(tooltip);
             const rect = e.target.getBoundingClientRect();
             tooltip.style.top = `${
@@ -32,7 +32,7 @@ const AuthorPopup = ({ authorImage, authorDescription, authorName }) => {
           }
         }}
       >
-        {authorName}
+        {name}
       </span>
     </div>
   );

@@ -8,25 +8,47 @@ import ArticleFilters from "../components/ArticleFilters";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [selectedFilters, setSelectedFilters] = useState();
 
   useEffect(() => {
     const fetchArticles = () => {
+      setLoading(true);
       let data = fetchHomePageData();
       setArticles(data?.articles || []);
+      setLoading(false);
     };
     fetchArticles();
   }, []);
 
+  useEffect(() => {
+    const fetchFilteredArticles = () => {
+      setLoading(true);
+      let data = fetchHomePageData(selectedFilters);
+      setArticles(data?.articles || []);
+      setLoading(false);
+    };
+    fetchFilteredArticles();
+  }, [selectedFilters]);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
   return (
     <div>
-      <ArticleFilters />
+      <ArticleFilters
+        selectedFilters={selectedFilters}
+        setSelectedFilters={setSelectedFilters}
+      />
       <ArticleList>
         {articles.map((article, index) => (
           <ArticleCard
             key={index}
-            image={article?.hero}
+            image={article?.heroImage}
             title={article?.title}
-            path={`/article/${article?.articleId}`}
+            subtitle={article?.subtitle}
+            path={`/article/${article?.id}`}
           />
         ))}
       </ArticleList>
