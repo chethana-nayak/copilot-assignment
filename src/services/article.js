@@ -1,11 +1,12 @@
 import homePageData from "../data/homePage.json";
 import articleData from "../data/article.json";
 import categoriesData from "../data/categories.json";
+import { apiTimeout } from "./apiTimeout";
 
-export function fetchHomePageData(filters) {
+export async function fetchHomePageData(filters) {
   try {
+    await apiTimeout();
     const response = JSON.parse(JSON.stringify(homePageData));
-
     if (!response.status) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -28,8 +29,9 @@ export function fetchHomePageData(filters) {
   }
 }
 
-export function fetchArticleDetailById(id) {
+export async function fetchArticleDetailById(id) {
   try {
+    await apiTimeout();
     const response = articleData;
     if (!response.status) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -41,8 +43,9 @@ export function fetchArticleDetailById(id) {
   }
 }
 
-export function fetchFilters() {
+export async function fetchFilters() {
   try {
+    await apiTimeout();
     const response = categoriesData;
     if (!response.status) {
       throw new Error(`HTTP error! status: ${response.status}`);

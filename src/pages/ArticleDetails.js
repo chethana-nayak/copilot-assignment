@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { fetchArticleDetailById } from "../services/article";
 import ArticleDetailPage from "../components/ArticleDetailsLayout";
+import Loader from "../components/Loader";
 
 const ArticleDetails = () => {
   const [article, setArticle] = useState(null);
@@ -12,7 +13,7 @@ const ArticleDetails = () => {
     const fetchArticleDetail = async () => {
       try {
         setLoading(true);
-        const response = fetchArticleDetailById(id);
+        const response = await fetchArticleDetailById(id);
         setArticle(response);
       } catch (error) {
         console.error("Error fetching article details:", error);
@@ -25,7 +26,7 @@ const ArticleDetails = () => {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <Loader />;
   }
 
   return <div>{article && <ArticleDetailPage article={article} />}</div>;

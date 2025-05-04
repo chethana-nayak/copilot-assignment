@@ -11,7 +11,7 @@ const ArticleFilters = ({ selectedFilters }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = fetchFilters();
+        const response = await fetchFilters();
         setDropdownData(response);
       } catch (error) {
         console.error("Error fetching dropdown data:", error);
