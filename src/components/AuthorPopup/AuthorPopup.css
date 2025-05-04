@@ -1,0 +1,44 @@
+.author-info {
+  display: flex;
+}
+
+.author-name {
+  color: #4a4a4a;
+  position: relative;
+}
+
+.author-tooltip {
+  position: absolute;
+  background-color: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  z-index: 1000;
+  max-width: 15rem;
+  text-align: center;
+}
+
+.tooltip-author-image {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  margin-bottom: 0.5rem;
+  object-fit: cover;
+}
+
+.author-tooltip p {
+  margin: 0;
+  font-size: 0.875rem;
+  color: #333;
+}
+
+.author-description {
+  display: none;
+  position: absolute;
+  background-color: white;
+  border: 0.0625rem solid #ccc;
+  padding: 0.625rem;
+  z-index: 10;
+  width: 12.5rem;
+}
