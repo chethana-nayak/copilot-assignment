@@ -6,6 +6,7 @@ import Loader from "../components/Loader";
 import BackButton from "../components/BackButton";
 
 import { fetchArticleDetailById } from "../services/article";
+import { CONSTANTS } from "../constants";
 
 const ArticleDetails = () => {
   const [article, setArticle] = useState(null);
@@ -43,7 +44,7 @@ const ArticleDetails = () => {
             textAlign: "center",
           }}
         >
-          No article found
+          {CONSTANTS.notFound.article}
         </h1>
       )}
     </div>

@@ -8,6 +8,7 @@ import ArticleFilters from "../components/ArticleFilters";
 import Loader from "../components/Loader";
 
 import { fetchHomePageData } from "../services/article";
+import { CONSTANTS } from "../constants";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
@@ -58,7 +59,7 @@ const Articles = () => {
               />
             ))
           ) : (
-            <h1>No articles found</h1>
+            <h1>{CONSTANTS.notFound.articles}</h1>
           )}
         </ArticleList>
       </div>

@@ -1,5 +1,7 @@
 import React from "react";
 
+import { CONSTANTS } from "../constants";
+
 const NotFound = () => (
   <div
     style={{
@@ -11,8 +13,8 @@ const NotFound = () => (
       fontSize: "32px",
     }}
   >
-    <h1>404</h1>
-    <p>Page Not Found</p>
+    <h1>{CONSTANTS.error.page}</h1>
+    <p>{CONSTANTS.notFound.page}</p>
   </div>
 );
 

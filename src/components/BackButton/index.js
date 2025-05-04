@@ -1,18 +1,19 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa"; 
+import { FaArrowLeft } from "react-icons/fa";
+import { CONSTANTS } from "../../constants";
 
 const BackButton = () => {
   const navigate = useNavigate();
 
   const handleBack = () => {
-    navigate(-1); 
+    navigate(-1);
   };
 
   return (
     <button onClick={handleBack} style={styles.button}>
       <FaArrowLeft style={styles.icon} />
-      <span style={styles.text}>Back</span>
+      <span style={styles.text}>{CONSTANTS.button.back}</span>
     </button>
   );
 };
