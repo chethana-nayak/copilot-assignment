@@ -1,40 +1,43 @@
-import React from "react";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
+import { useSearchParams } from "react-router-dom";
 import PullToRefresh from "react-pull-to-refresh";
 
 import ArticleCard from "../components/ArticleCard";
-import { fetchHomePageData } from "../services/article";
 import ArticleList from "../components/ArticleList";
 import ArticleFilters from "../components/ArticleFilters";
-import { useSearchParams } from "react-router-dom";
 import Loader from "../components/Loader";
+
+import { fetchHomePageData } from "../services/article";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [selectedFilters, setSelectedFilters] = useState();
+  const [selectedFilters, setSelectedFilters] = useState({});
   const [searchParams] = useSearchParams();
 
-  const fetchArticles = async (filters = {}) => {
+  const fetchArticles = useCallback(async (filters = {}) => {
     setLoading(true);
-    const data = await fetchHomePageData(filters);
-    setArticles(data?.articles || []);
-    setLoading(false);
-  };
+    try {
+      const data = await fetchHomePageData(filters);
+      setArticles(data?.articles || []);
+    } finally {
+      setLoading(false);
+    }
+  }, []);
 
   useEffect(() => {
     fetchArticles();
-  }, []);
+  }, [fetchArticles]);
 
   useEffect(() => {
     const params = Object.fromEntries(searchParams.entries());
     setSelectedFilters(params);
     fetchArticles(params);
-  }, [searchParams]);
+  }, [searchParams, fetchArticles]);
 
   const handleRefresh = async () => {
     const params = Object.fromEntries(searchParams.entries());
-    fetchArticles(params);
+    await fetchArticles(params);
   };
 
   return (
@@ -44,14 +47,14 @@ const Articles = () => {
         <ArticleList>
           {loading ? (
             <Loader />
-          ) : articles && articles?.length > 0 ? (
-            articles.map((article, index) => (
+          ) : articles.length > 0 ? (
+            articles.map((article) => (
               <ArticleCard
-                key={index}
-                image={article?.heroImage}
-                title={article?.title}
-                subtitle={article?.subtitle}
-                path={`/article/${article?.id}`}
+                key={article.id}
+                image={article.heroImage}
+                title={article.title}
+                subtitle={article.subtitle}
+                path={`/article/${article.id}`}
               />
             ))
           ) : (

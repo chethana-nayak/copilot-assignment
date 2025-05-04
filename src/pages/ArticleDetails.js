@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchArticleDetailById } from "../services/article";
+
 import ArticleDetailPage from "../components/ArticleDetailsLayout";
 import Loader from "../components/Loader";
 import BackButton from "../components/BackButton";
+
+import { fetchArticleDetailById } from "../services/article";
 
 const ArticleDetails = () => {
   const [article, setArticle] = useState(null);
@@ -12,8 +14,8 @@ const ArticleDetails = () => {
 
   useEffect(() => {
     const fetchArticleDetail = async () => {
+      setLoading(true);
       try {
-        setLoading(true);
         const response = await fetchArticleDetailById(id);
         setArticle(response);
       } catch (error) {

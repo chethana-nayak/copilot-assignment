@@ -1,7 +1,9 @@
 import React from "react";
-import "./ArticleDetailsLayout.css";
-import AuthorPopup from "../AuthorPopup";
 import { Link } from "react-router-dom";
+
+import AuthorPopup from "../AuthorPopup";
+
+import "./ArticleDetailsLayout.css";
 
 const ArticleDetailsLayout = ({ article }) => {
   const {

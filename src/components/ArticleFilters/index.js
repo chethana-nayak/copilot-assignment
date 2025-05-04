@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+
 import Dropdown from "../Dropdown";
+
 import { fetchFilters } from "../../services/article";
+
 import "./ArticleFilters.css";
 
 const ArticleFilters = ({ selectedFilters }) => {
