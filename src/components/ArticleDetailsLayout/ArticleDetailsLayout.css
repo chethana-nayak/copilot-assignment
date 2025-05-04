@@ -48,4 +48,10 @@
   padding: 0.3125rem;
   margin: 0.3125rem 0;
   text-transform: capitalize;
+  text-decoration: none;
+  color: inherit;
+}
+
+.tag:hover {
+  text-decoration: underline;
 }
