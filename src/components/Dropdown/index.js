@@ -31,7 +31,14 @@ const Dropdown = ({ options, placeholder, value, onSelect }) => {
   return (
     <div className="dropdown">
       <div className="dropdown-header" onClick={toggleDropdown}>
-        {selectedOption ? selectedOption.name : placeholder}
+        <span
+          style={{
+            color: selectedOption ? "black" : "gray",
+            fontWeight: selectedOption ? "bold" : "normal",
+          }}
+        >
+          {selectedOption ? selectedOption.name : placeholder}
+        </span>
         <span className={`dropdown-arrow ${isOpen ? "open" : ""}`}>
           &#9662;
         </span>
@@ -43,6 +50,12 @@ const Dropdown = ({ options, placeholder, value, onSelect }) => {
               key={option.id}
               className="dropdown-item"
               onClick={() => handleOptionClick(option)}
+              style={{
+                fontWeight:
+                  selectedOption && option.id === selectedOption.id
+                    ? "bold"
+                    : "normal",
+              }}
             >
               <span className="dropdown-item-name">{option.name}</span>
               {selectedOption && option.id === selectedOption.id && (

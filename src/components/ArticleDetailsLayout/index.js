@@ -1,14 +1,9 @@
 import React from "react";
 import "./ArticleDetailsLayout.css";
 import AuthorPopup from "../AuthorPopup";
-import BackButton from "../BackButton";
 import { Link } from "react-router-dom";
 
 const ArticleDetailsLayout = ({ article }) => {
-  if (!article) {
-    return <div>No article data available.</div>;
-  }
-
   const {
     title,
     heroImage,
@@ -22,9 +17,6 @@ const ArticleDetailsLayout = ({ article }) => {
 
   return (
     <>
-      <div className="back-button-wrapper">
-        <BackButton />
-      </div>
       <div className="article-detail-page">
         {title && <h1 className="title">{title}</h1>}
         {heroImage && <img src={heroImage} alt="Hero" className="hero-image" />}

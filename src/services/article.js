@@ -1,5 +1,6 @@
 import homePageData from "../data/homePage.json";
 import articleData from "../data/article.json";
+import articlesStore from "../data/articlesStore.json";
 import categoriesData from "../data/categories.json";
 import { apiTimeout } from "./apiTimeout";
 
@@ -33,10 +34,13 @@ export async function fetchArticleDetailById(id) {
   try {
     await apiTimeout();
     const response = articleData;
+    const articleDataFromId = getArticleById(id);
+    response.data = articleDataFromId;
+
     if (!response.status) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    return articleData?.data;
+    return response?.data;
   } catch (error) {
     console.error("Error fetching article.json:", error);
     throw error;
@@ -56,3 +60,8 @@ export async function fetchFilters() {
     throw error;
   }
 }
+
+const getArticleById = (id) => {
+  const article = articlesStore.find((article) => article.id === id);
+  return article;
+};

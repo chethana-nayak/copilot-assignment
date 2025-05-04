@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { fetchArticleDetailById } from "../services/article";
 import ArticleDetailPage from "../components/ArticleDetailsLayout";
 import Loader from "../components/Loader";
+import BackButton from "../components/BackButton";
 
 const ArticleDetails = () => {
   const [article, setArticle] = useState(null);
@@ -25,11 +26,26 @@ const ArticleDetails = () => {
     fetchArticleDetail();
   }, [id]);
 
-  if (loading) {
-    return <Loader />;
-  }
-
-  return <div>{article && <ArticleDetailPage article={article} />}</div>;
+  return (
+    <div>
+      <div className="back-button-wrapper">
+        <BackButton />
+      </div>
+      {loading ? (
+        <Loader />
+      ) : article ? (
+        <ArticleDetailPage article={article} />
+      ) : (
+        <h1
+          style={{
+            textAlign: "center",
+          }}
+        >
+          No article found
+        </h1>
+      )}
+    </div>
+  );
 };
 
 export default ArticleDetails;
