@@ -42,15 +42,19 @@ const Articles = () => {
         setSelectedFilters={setSelectedFilters}
       />
       <ArticleList>
-        {articles.map((article, index) => (
-          <ArticleCard
-            key={index}
-            image={article?.heroImage}
-            title={article?.title}
-            subtitle={article?.subtitle}
-            path={`/article/${article?.id}`}
-          />
-        ))}
+        {articles && articles?.length > 0 ? (
+          articles.map((article, index) => (
+            <ArticleCard
+              key={index}
+              image={article?.heroImage}
+              title={article?.title}
+              subtitle={article?.subtitle}
+              path={`/article/${article?.id}`}
+            />
+          ))
+        ) : (
+          <h1>No articles found</h1>
+        )}
       </ArticleList>
     </div>
   );

@@ -2,13 +2,26 @@ import homePageData from "../data/homePage.json";
 import articleData from "../data/article.json";
 import categoriesData from "../data/categories.json";
 
-export function fetchHomePageData() {
+export function fetchHomePageData(filters) {
   try {
-    const response = homePageData;
+    const response = JSON.parse(JSON.stringify(homePageData));
+
     if (!response.status) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    return homePageData?.data;
+    if (filters) {
+      const { author, category, type, tag } = filters;
+      response.data.articles = response.data.articles.filter((article) => {
+        const matchesAuthor = author ? article.authorId === author.id : true;
+        const matchesCategory = category
+          ? article.categoryId === category.id
+          : true;
+        const matchesType = type ? article.type === type.id : true;
+        const matchesTag = tag ? article.tags.includes(tag.name) : true;
+        return matchesAuthor && matchesCategory && matchesType && matchesTag;
+      });
+    }
+    return response?.data;
   } catch (error) {
     console.error("Error fetching homePage.json:", error);
     throw error;

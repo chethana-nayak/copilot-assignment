@@ -2,7 +2,7 @@
   "status": 1,
   "message": "success",
   "data": {
-    "authors": [
+    "author": [
       {
         "id": "y7w3w242",
         "name": "Author 1"
@@ -16,7 +16,7 @@
         "name": "Anonymous"
       }
     ],
-    "categories": [
+    "category": [
       {
         "id": "r4wd2u8",
         "name": "Technology"
@@ -26,7 +26,7 @@
         "name": "Science"
       }
     ],
-    "articleTypes": [
+    "type": [
       {
         "id": 1,
         "name": "Article"
@@ -36,7 +36,7 @@
         "name": "Blog"
       }
     ],
-    "tags": [
+    "tag": [
       {
         "id": "Science",
         "name": "Science"
