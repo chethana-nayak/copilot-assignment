@@ -28,11 +28,11 @@
     ],
     "type": [
       {
-        "id": "1",
+        "id": "text",
         "name": "Article"
       },
       {
-        "id": "2",
+        "id": "video",
         "name": "Blog"
       }
     ],

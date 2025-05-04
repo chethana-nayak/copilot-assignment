@@ -2,7 +2,7 @@
   {
     "id": "a2b448sq",
     "publishedDate": "2024-12-24 13:45",
-    "type": "1",
+    "type": "text",
     "author": {
       "id": "c3js6384",
       "image": "",
@@ -21,7 +21,7 @@
   {
     "id": "b2n2ss92",
     "publishedDate": "2024-12-10 16:30",
-    "type": "2",
+    "type": "video",
     "author": {
       "id": "n7232g2",
       "image": "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?t=st=1746384761~exp=1746388361~hmac=e51b6c6dba8ba688011ab807c79b7f6c6cdcf38a437c3671efded45a9d989b2d&w=1380",
@@ -36,6 +36,6 @@
     "title": "Has Codeium Cracked the Code for AI Assistants?",
     "subtitle": "Codeium is a free AI-powered code completion tool that helps developers write code faster and with fewer errors.",
     "heroImage": "https://www.bigdatawire.com/wp-content/uploads/2024/05/AI-copilot_shutterstock_AI-generated.jpg",
-    "description": "<p>Codeium is an AI-powered code completion tool designed to enhance developer productivity. It offers features such as real-time code suggestions, error reduction, and seamless integration with popular IDEs.</p>\n    <h2 id='1'>Why Choose Codeium?</h2>\n    <ul>\n      <li>Free to use with no hidden costs.</li>\n      <li>Supports multiple programming languages and frameworks.</li>\n      <li>Improves code quality and reduces development time.</li>\n    </ul>"
+    "mediaUrl": "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
   }
 ]

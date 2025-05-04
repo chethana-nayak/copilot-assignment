@@ -22,7 +22,12 @@ const AuthorPopup = ({ image, description, name }) => {
             tooltip.style.top = `${
               rect.top + window.scrollY - tooltip.offsetHeight - 10
             }px`;
-            tooltip.style.left = `${rect.left + window.scrollX}px`;
+            tooltip.style.left = `${
+              rect.left +
+              window.scrollX +
+              rect.width / 2 -
+              tooltip.offsetWidth / 2
+            }px`;
           }
         }}
         onMouseLeave={() => {

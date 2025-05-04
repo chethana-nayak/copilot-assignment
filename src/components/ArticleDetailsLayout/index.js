@@ -12,7 +12,7 @@ const ArticleDetailsLayout = ({ article }) => {
     type,
     tags,
     description,
-    content,
+    mediaUrl,
   } = article;
 
   return (
@@ -22,9 +22,9 @@ const ArticleDetailsLayout = ({ article }) => {
         {heroImage && <img src={heroImage} alt="Hero" className="hero-image" />}
         {author && <AuthorPopup {...author} />}
         {subtitle && <div className="subtitles">{subtitle}</div>}
-        {type === "video" && content ? (
+        {type === "video" && mediaUrl ? (
           <video controls className="media-player">
-            <source src={content} type="video/mp4" />
+            <source src={mediaUrl} type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         ) : (

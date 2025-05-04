@@ -55,3 +55,8 @@
 .tag:hover {
   text-decoration: underline;
 }
+
+.media-player {
+  width: 100%;
+  height: auto;
+}
